@@ -17,18 +17,21 @@ public class UserDAO {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
+			System.out.println("DB 성공");
 		} catch (Exception e) {
+			System.out.println("DB 연결에러");
 			e.printStackTrace();
 		}
 	}
 	public ArrayList<User> search(String name){
-		String SQL = "select* from where userName LIKE ?";// 이름의 하나만 포함되도 데이터에 출력이되게.
+		String SQL = "SELECT* FROM USER WHERE userName LIKE ?";// 이름의 하나만 포함되도 데이터에 출력이되게.
 		ArrayList<User> userList = new ArrayList<User>();
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, name);
+			pstmt.setString(1, "%"+name+"%");
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
+				System.out.println("저장 중!");
 				User user = new User();
 				user.setUserName(rs.getString(1));
 				user.setAge(rs.getInt(2));
