@@ -9,20 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/UserSearchServlet")
-public class UserSearchServlet extends HttpServlet {
+@WebServlet("/UserTestServlet")
+public class UserTestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
- 
+  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charest=UTF-8");
 		String userName = request.getParameter("userName");
-		response.getWriter().write(getJson(userName));
+		response.getWriter().write(getJSON(userName));
 	}
-	public String getJson(String userName) {
-		if(userName == null) userName ="";
-		StringBuffer result = new StringBuffer("");
+	public String getJSON(String userName) {
+		StringBuffer result = new StringBuffer();
 		result.append("{\"result\":[");
 		UserDAO userDAO = new UserDAO();
 		ArrayList<User> userList = userDAO.search(userName);
@@ -35,5 +33,4 @@ public class UserSearchServlet extends HttpServlet {
 		result.append("]}");
 		return result.toString();
 	}
-
 }

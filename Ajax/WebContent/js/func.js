@@ -11,7 +11,7 @@ function searchProcess(){
 		var obj = eval('('+request.responseText+')');
 		var result = obj.result;
 		for(var i = 0; i< result.length;i++){
-			var row = table.insertRow(0);
+			var row = table.insertRow(i);
 			for(var j = 0; j<result[i].length;j++){
 				var cell = row.insertCell(j);
 				cell.innerHTML = result[i][j].value;

@@ -32,8 +32,48 @@
 			</tr>
 		</thead>
 		<tbody id="ajaxTable">
-			
 		</tbody>
+		</table>
+	</div>
+	<div class="container">
+		<table class="table"
+			style="text-align: center; border: 1px solid #dddddd">
+			<thead>
+				<tr>
+					<th colspan="2" style="background-color: #fafafa text-align:center">회원등록양식</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="background-color:#fafafa"><h5>이름</h5></td>
+					<td><input style="background-color:white" type="text" id="name" class="form-control" size="20"></td>
+				</tr>
+				<tr>
+					<td style="background-color:#fafafa"><h5>나이</h5></td>
+					<td><input style="background-color:white" type="text" id="age" class="form-control" size="20"></td>
+				</tr>
+				<tr>
+					<td style="background-color:#fafafa"><h5>성별</h5></td>
+					<td>
+					<div class="form-group" style="text-align">
+						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-primary active">
+							<input type=radio name="gender" value="man">남자
+							</label>
+							<label class="btn btn-primary">
+							<input type=radio name="gender" value="woman">여자
+							</label>
+						</div>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:#fafafa"><h5>이메일</h5></td>
+					<td><input style="background-color:white" type="email" id="email" class="form-control" size="20"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button class="btn btn-primary pull-right" onclick="registerFunc();" type = "button">등록</button></td>
+				</tr>
+			</tbody>
 		</table>
 	</div>
 </body>
