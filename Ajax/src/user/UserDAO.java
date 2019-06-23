@@ -44,14 +44,14 @@ public class UserDAO {
 		}
 		return userList;
 	}
-	public int register(String name, int age, String gender, String email) {
+	public int register(User user) {
 		String SQL = "insert into user values(?,?,?,?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, name);
-			pstmt.setInt(2, age);
-			pstmt.setString(1, gender);
-			pstmt.setString(1, email);
+			pstmt.setString(1, user.getUserName());
+			pstmt.setInt(2, user.getAge());
+			pstmt.setString(3, user.getUserGender());
+			pstmt.setString(4, user.getUserEmail());
 			return pstmt.executeUpdate();
 		}catch(Exception e) {
 			System.out.println("등록오류");
